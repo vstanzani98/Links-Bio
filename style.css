@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Garante que padding não aumente o tamanho dos elementos */
+  box-sizing: border-box;
 }
 
 :root {
@@ -26,19 +26,28 @@
 
 body {
   background: var(--bg-url) no-repeat top center/cover;
-  background-attachment: fixed; /* Mantém o fundo fixo ao rolar */
+  background-attachment: fixed;
   min-height: 100vh;
+  /* Transição suave para o fundo e cores */
+  transition:
+    background 0.4s ease-in-out,
+    color 0.4s ease-in-out;
 }
 
 body * {
   font-family: "Inter", sans-serif;
   color: var(--text-color);
+  /* Garante que todos os textos mudem de cor suavemente */
+  transition:
+    color 0.4s ease-in-out,
+    background-color 0.4s ease-in-out,
+    border-color 0.4s ease-in-out;
 }
 
 #container {
   width: 100%;
   max-width: 588px;
-  margin: 32px auto 0; /* Margem superior reduzida de 56px para 32px */
+  margin: 32px auto 0;
   padding: 0 24px;
 }
 
@@ -49,7 +58,7 @@ body * {
 }
 
 .avatar {
-  width: 112px; /* Reduzido levemente de 125px para 112px */
+  width: 112px;
   height: 112px;
   border-radius: 50%;
   object-fit: cover;
@@ -59,7 +68,7 @@ body * {
 #profile p {
   font-weight: 500;
   line-height: 24px;
-  margin-bottom: 16px; /* Reduzido de 24px para 16px */
+  margin-bottom: 16px;
 }
 
 /* Switch */
@@ -82,11 +91,14 @@ body * {
   transform: translateY(-50%);
   cursor: pointer;
   animation: slide-out 0.3s;
+  /* Transição para a imagem do ícone (sol/lua) */
+  transition: background 0.2s;
 }
 
 .light #switch button {
   animation: slide-in 0.4s forwards;
 }
+
 #switch button:hover {
   outline: 8px solid var(--hightlight-color);
 }
@@ -100,6 +112,10 @@ body * {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
+  /* Transição para a barra do switch */
+  transition:
+    background 0.4s,
+    border-color 0.4s;
 }
 
 /* Links */
@@ -107,7 +123,7 @@ ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px; /* Reduzido de 16px para 12px */
+  gap: 12px;
   padding: 16px 0;
 }
 
@@ -115,7 +131,7 @@ ul li a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px; /* Reduzido de 16px para 12px vertical */
+  padding: 12px 24px;
   background: var(--surface-color);
   border: 1px solid var(--stroke-color);
   border-radius: 8px;
@@ -123,21 +139,27 @@ ul li a {
   -webkit-backdrop-filter: blur(4px);
   text-decoration: none;
   font-weight: 500;
+  /* Transição suave para cores de fundo e borda */
   transition:
-    background 0.2s,
-    border 0.2s;
+    background 0.4s,
+    border 0.4s,
+    color 0.4s;
 }
 
 ul li a:hover {
   background: var(--surface-color-hover);
   border: 1.5px solid var(--text-color);
+  /* No hover a transição é mais rápida para dar feedback imediato */
+  transition:
+    background 0.2s,
+    border 0.2s;
 }
 
 /* Social Links */
 #social-links {
   display: flex;
   justify-content: center;
-  padding: 8px 0; /* Reduzido de 24px para 8px */
+  padding: 8px 0;
   font-size: 24px;
 }
 
@@ -146,8 +168,10 @@ ul li a:hover {
   align-items: center;
   justify-content: center;
   padding: 12px;
-  transition: background 0.3s;
   border-radius: 50%;
+  transition:
+    background 0.3s,
+    color 0.4s;
 }
 
 #social-links a:hover {
@@ -156,7 +180,7 @@ ul li a:hover {
 
 /* Footer */
 footer {
-  padding: 16px 0; /* Reduzido de 24px para 16px */
+  padding: 16px 0;
   text-align: center;
   font-size: 12px;
 }
@@ -170,6 +194,7 @@ footer {
     --bg-url: url(./assets/bg-desktop-light.jpg);
   }
 }
+
 /*animaçao*/
 @keyframes slide-in {
   from {

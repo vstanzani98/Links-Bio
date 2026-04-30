@@ -6,9 +6,11 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Remove contornos de foco padrão para um visual mais limpo */
-*:focus {
-  outline: none;
+/* Remove contornos de foco e o "quadrado branco" indesejado */
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 :root {
